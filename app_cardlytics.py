@@ -45,8 +45,7 @@ if uploaded_file is not None:
 	redemptions = [c for c in cols if c.lower().find('redemption')>=0]
 	industries = [c.replace(" Incentive", "") for c in incentives]
 	sorted_industries = sorted(industries)
-	selected_industries = st.sidebar.multiselect('''####
-		Choose industries''', sorted_industries, sorted_industries)
+	selected_industries = st.sidebar.multiselect('Choose industries:', sorted_industries, sorted_industries)
 	selected_columns = ['Date']+[i+' Incentive' for i in selected_industries]+[i+' Redemption' for i in selected_industries]
 	st.write(df[selected_columns])
 	analyze = st.checkbox('Display incentive-redemption relation for selected industries')
